@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <display v-if="modulo=='panelcontrol'"></display>
+    <display v-if="modulo=='panelcontrol'" @modulo="setModulo"></display>
     <usuarios v-if="modulo == 'usuarios'"></usuarios>
     <roles v-if="modulo == 'roles'"></roles>
     <ambito v-if="modulo == 'ambito'"></ambito>
@@ -30,11 +30,20 @@ export default {
     Pedidos
   },
 
-  props: ['authenticated', 'modulo'],
+  props: ['modulo'],
 
   created () {
+    /*
     if (!this.authenticated) {
       this.$router.push('/')
+    }
+    */
+  },
+
+  methods: {
+    setModulo (modulo) {
+      console.log('PanelControl - Modulo:' + modulo)
+      this.$emit('modulo', modulo)
     }
   }
 

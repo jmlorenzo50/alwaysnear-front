@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <encabezado :version="valorversion" :authenticated="authenticated" @authenticated="setAuthenticated" @modulo="setModulo" :modulo="modulo" :rol="rol" @rol="setRol"></encabezado>
-    <router-view @authenticated="setAuthenticated" :authenticated="authenticated" :modulo="modulo" :rol="rol" @rol="setRol"></router-view>
+    <router-view @authenticated="setAuthenticated" :authenticated="authenticated" @modulo="setModulo" :modulo="modulo" :rol="rol" @rol="setRol"></router-view>
   </div>
 </template>
 
@@ -23,6 +23,7 @@ export default {
   },
   methods: {
     setAuthenticated (status) {
+      console.log('App setAuthenticated: ' + status)
       this.authenticated = status
     },
     setModulo (modulo) {
