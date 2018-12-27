@@ -39,19 +39,9 @@
                </b-col>
              </b-row>
 
-             <b-row class="mb-1">
-               <b-col cols="4">País</b-col>
-               <b-col>
-                 <b-form-select required v-model="cliente.pais" :options="paises" class="mb-3" />
-               </b-col>
-             </b-row>
+             <catalogo :label="'País'" :tipo="'pais'" v-model="cliente.pais"></catalogo>
 
-             <b-row class="mb-1">
-               <b-col cols="4">Tipo cliente</b-col>
-               <b-col>
-                 <b-form-select required v-model="cliente.tipo" :options="tipos" class="mb-3" />
-               </b-col>
-             </b-row>
+             <catalogo :label="'Tipo cliente'" :tipo="'tpcliente'" v-model="cliente.tipo"></catalogo>
 
              <b-row class="mb-1">
                <b-col cols="4">Nombre Contacto</b-col>
@@ -93,12 +83,7 @@
                </b-col>
              </b-row>
 
-             <b-row class="mb-1">
-               <b-col cols="4">Ámbito</b-col>
-               <b-col>
-                 <b-form-select required v-model="cliente.ambito" :options="ambitos" class="mb-3" />
-               </b-col>
-             </b-row>
+             <catalogo :label="'Ámbito'" :tipo="'ambito'" v-model="cliente.ambito"></catalogo>
 
              <b-row>
                <b-col cols="4">Fecha baja</b-col>
@@ -143,14 +128,9 @@
               </div>
           </div>
 
-
-
-
         </b-tab>
       </b-tabs>
       </b-card>
-
-
 
       <div slot="modal-footer" class="w-100" style="text-align: center">
          <b-btn size="sm" style="width: 100px; margin-left: 25px; margin-right: 25px;" variant="primary" @click="btnAceptar">
@@ -173,7 +153,12 @@ const items = [
   { licencia: 'AAABBB-004', fcactivacion: null, fcrenovacion: null, fcbaja: null }
 ]
 
+import Catalogo from '../sistema/catalogo.vue'
+
 export default {
+  components: {
+    Catalogo
+  },
   data () {
     return {
       modalShow: false,

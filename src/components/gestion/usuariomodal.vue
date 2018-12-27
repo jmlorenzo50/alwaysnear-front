@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="text-align: left  ">
     <b-button @click="mostrarModal()"
               variant="outline-primary"
               v-b-popover.hover="'Crea un nuevo usuario'"
@@ -35,12 +35,7 @@
            </b-col>
          </b-row>
 
-         <b-row class="mb-1">
-           <b-col cols="4">Rol</b-col>
-           <b-col>
-             <b-form-select required v-model="rol" :options="roles" class="mb-3" />
-           </b-col>
-         </b-row>
+         <catalogo :label="'Rol'" :tipo="'rol'" v-model="rol"></catalogo>
 
          <b-form-group label="Ambitos:">
              <b-form-checkbox-group name="chkambito" v-model="ambito">
@@ -70,7 +65,13 @@
 </template>
 
 <script>
+import Catalogo from '../sistema/catalogo.vue'
+
 export default {
+  components: {
+    Catalogo
+  },
+
   data () {
     return {
       modalShow: false,
@@ -78,12 +79,6 @@ export default {
       password: '',
       rol: null,
       fcbaja: '',
-      roles: [
-        { value: null, text: '-- seleccione un rol --' },
-        { value: '1', text: 'Administrador' },
-        { value: '2', text: 'Usuario' },
-        { value: '3', text: 'Franquicia' }
-      ],
       ambito: null
     }
   },
@@ -93,6 +88,7 @@ export default {
       console.log('mostrarModal ' + this.modalShow)
       this.login = ''
       this.password = ''
+      this.rol = '1'
       this.fcbaja = ''
       this.$refs.myModalRef.show()
     },
@@ -101,6 +97,9 @@ export default {
     },
     btnCancelar () {
       this.$refs.myModalRef.hide()
+    },
+    setRol (value) {
+      this.rol = value
     }
   }
 }

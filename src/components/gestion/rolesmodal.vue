@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="text-align: left">
     <b-button @click="mostrarModal()"
               variant="outline-primary"
               v-b-popover.hover="'Crea un nuevo rol'"

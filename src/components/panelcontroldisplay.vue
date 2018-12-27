@@ -40,7 +40,7 @@
                       img-top
                       style="max-width: 20rem;"
                       class="mb-2"
-                      @click="navegar('roles')">
+                      @click="navegar('ambito')">
                 <p class="card-text">
                   Define los dominios de actuación del sistema indican el idioma y la moneda.
                 </p>

@@ -2,7 +2,7 @@
   <div>
       <b-container fluid>
           <div class="botoneraL">
-            <b-form-select required v-model="filtropais" :options="paises" class="mb-3" />
+            <catalogo :label="'País'" :tipo="'pais'" v-model="filtropais"></catalogo>
           </div>
           <div class="botoneraL">
            <button  type="button" class="btn btn-primary btn-xs">Buscar</button>
@@ -43,6 +43,7 @@
 <script>
 
 import NuevoCliente from './clientesmodal.vue'
+import Catalogo from '../sistema/catalogo.vue'
 
 const items = [
   { nombre: 'cliente01', tipoCliente: 'distribuidor', pais: 'Georgia', contacto: 'Pabloski', email: 'email@gmail.com', direccion: 'España, Madrid, C/Pez 1', fcbaja: null },
@@ -53,7 +54,8 @@ const items = [
 
 export default {
   components: {
-    NuevoCliente
+    NuevoCliente,
+    Catalogo
   },
 
   data () {
@@ -75,12 +77,6 @@ export default {
       sortDirection: 'asc',
       filter: null,
       filtropais: null,
-      paises: [
-        { value: null, text: '-- seleccione un país --' },
-        { value: 'ES', text: 'España' },
-        { value: 'RUS', text: 'Rusia' },
-        { value: 'GEO', text: 'Georgia' }
-      ],
       computed: {
         sortOptions () {
           // Create an options list from our fields

@@ -5,7 +5,7 @@
               v-b-popover.hover="'Crea un nuevo producto'"
               title="Ayuda">Nuevo</b-button>
     <b-modal ref="myModalRef"
-             title="Ficha del rol"
+             title="Ficha del producto"
              header-bg-variant="primary"
              header-text-variant="light"
              size="lg"
@@ -58,19 +58,9 @@
            </b-col>
          </b-row>
 
-         <b-row class="mb-1">
-           <b-col cols="4">Tipo cliente</b-col>
-           <b-col>
-             <b-form-select required v-model="tipocliente.id" :options="tipos" class="mb-3" />
-           </b-col>
-         </b-row>
+         <catalogo :label="'Tipo cliente'" :tipo="'tpcliente'" v-model="tipocliente.id"></catalogo>
 
-         <b-row class="mb-1">
-           <b-col cols="4">Ámbito</b-col>
-           <b-col>
-             <b-form-select required v-model="ambito.id" :options="ambitos" class="mb-3" />
-           </b-col>
-         </b-row>
+         <catalogo :label="'Ámbito'" :tipo="'ambito'" v-model="ambito.id"></catalogo>
 
          <b-row>
            <b-col cols="4">Fecha baja</b-col>
@@ -90,7 +80,12 @@
 </template>
 
 <script>
+import Catalogo from '../sistema/catalogo.vue'
+
 export default {
+  components: {
+    Catalogo
+  },
   data () {
     return {
       modalShow: false,

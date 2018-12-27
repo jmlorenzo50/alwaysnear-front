@@ -28,7 +28,7 @@
             <b-button type="submit" variant="primary">Logout</b-button>
           </b-nav-form>
 
-          <b-nav-text v-if="authenticated" right>versión {{version}}</b-nav-text>
+          <b-nav-text v-if="authenticated" right>v{{version}}</b-nav-text>
 
         </b-navbar-nav>
       </b-collapse>
@@ -59,7 +59,7 @@
 
 <style>
 .navbar-text {
-  padding-right: 1em;
+  padding-right: 5em;
 }
 .form-inline {
   padding-right: 1em;
