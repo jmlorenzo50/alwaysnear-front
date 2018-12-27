@@ -59,16 +59,7 @@ export default {
       modalShow: false,
       nombre: '',
       descripcion: '',
-      fcbaja: '',
-      usuario: '',
-      backup: '',
-      perfil: {idperfil: null, dsperfil: null},
-      perfiles: [
-        { value: null, text: '-- seleccione una empresa --' },
-        { value: '1', text: 'Manager' },
-        { value: '2', text: 'RET' },
-        { value: '3', text: 'Técnico' }
-      ]
+      fcbaja: ''
     }
   },
   methods: {
